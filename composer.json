@@ -16,10 +16,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "illuminate/database": "^12.0@dev",
-        "illuminate/support": "^12.0@dev",
-        "illuminate/console": "^12.0@dev",
-        "laravel/framework": "^12.0@dev"
+        "laravel/framework": "^11.9"
     },
     "extra": {
         "laravel": {
