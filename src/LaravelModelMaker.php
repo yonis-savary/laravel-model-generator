@@ -43,7 +43,7 @@ class LaravelModelMaker
                     (($keyType = $description->keyType()) ?
                         '    protected $keyType = "'.$keyType.'";' : null),
 
-                '    protected $incrementing = '. ($description->incrementing() ? 'true': 'false') . ';' ,
+                '    public $incrementing = '. ($description->incrementing() ? 'true': 'false') . ';' ,
                 '',
                 '    protected $attributes = [',
                         ...collect($description->fields)

@@ -26,4 +26,5 @@ php artisan make:auto-models
 - Original digest system (won't overwrite an edited file unless `--force` is used)
 
 🔵 Soon:
+- `{--resource}` option to generate controller resource
 - tests...
