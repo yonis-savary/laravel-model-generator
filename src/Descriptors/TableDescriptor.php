@@ -25,7 +25,8 @@ class TableDescriptor
     public function keyType(): ?string
     {
         if ($field = $this->findPrimaryField())
-            return ColumnDataType::toString($field->type);
+            return in_array($field->type, [ColumnDataType::INTEGER, ColumnDataType::LONG]) ? false: "string";
+
         return false;
     }
 
