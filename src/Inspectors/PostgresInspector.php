@@ -73,6 +73,7 @@ class PostgresInspector implements DatabaseInspectorInterface
             $columnDescription->nullable = $field->is_nullable === "YES";
             $columnDescription->isPrimaryKey = str_contains($field->constraints, "PRIMARY KEY");
             $columnDescription->isGenerated = $field->is_generated !== "NEVER";
+            $columnDescription->autoincrement = str_contains($field->column_default, "nextval");
 
             $description->fields[] = $columnDescription;
 
