@@ -65,6 +65,11 @@ class ColumnDescriptor
         return $field;
     }
 
+    public function isFillable(): bool
+    {
+        return !($this->isGenerated || $this->isPrimaryKey);
+    }
+
     public function toArray(): array
     {
         return [

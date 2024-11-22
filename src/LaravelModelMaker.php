@@ -34,7 +34,6 @@ class LaravelModelMaker
                 (($editedAt = $description->updatedAt())  ? "    const UPDATED_AT = \"$editedAt\";" : null),
                 '',
 
-
                 '    protected $table = "'. $description->table .'";',
 
                     (($primary = $description->primaryKey()) ?
@@ -45,6 +44,17 @@ class LaravelModelMaker
 
                 '    public $incrementing = '. ($description->incrementing() ? 'true': 'false') . ';' ,
                 '',
+
+
+                '    protected $fillable = [',
+                        ...collect($description->fields)
+                        ->filter(fn(ColumnDescriptor $f) => $f->isFillable())
+                        ->map(fn(ColumnDescriptor $f) => '        "' . $f->name .'",')
+                        ->filter()
+                        ->toArray(),
+                '    ];',
+                '',
+
                 '    protected $attributes = [',
                         ...collect($description->fields)
                         ->map(fn(ColumnDescriptor $f) =>
