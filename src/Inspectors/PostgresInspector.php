@@ -71,7 +71,7 @@ class PostgresInspector implements DatabaseInspectorInterface
             $columnDescription->default = $field->column_default;
             $columnDescription->type = ColumnDataType::fromString($field->data_type) ?? ColumnDataType::VARCHAR;
             $columnDescription->nullable = $field->is_nullable === "YES";
-            $columnDescription->isPrimaryKey = $field->constraints == "PRIMARY KEY";
+            $columnDescription->isPrimaryKey = str_contains($field->constraints, "PRIMARY KEY");
             $columnDescription->isGenerated = $field->is_generated !== "NEVER";
 
             $description->fields[] = $columnDescription;
