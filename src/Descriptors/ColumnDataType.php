@@ -37,7 +37,7 @@ enum ColumnDataType
         return match($type) {
             ColumnDataType::UUID => "string",
             ColumnDataType::INTEGER => "int",
-            ColumnDataType::LONG => "float",
+            ColumnDataType::LONG => "int",
             ColumnDataType::FLOAT => "float",
             ColumnDataType::DOUBLE => "float",
             ColumnDataType::DECIMAL => "string",
